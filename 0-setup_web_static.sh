@@ -13,7 +13,7 @@ mkdir -p /data/web_static/shared/
 mkdir -p /data/web_static/releases/test/
 
 # make a fake html file to test the nginx configuration
-echo "<!DOCTYPE html>\n<html lang="en">\n<head>\n</head>\n<body>\n\t<p>Hello Everyone!</p>\n</body>\n</html>" > /data/web_static/releases/test/index.html
+printf "<!DOCTYPE html>\n<html lang="en">\n<head>\n</head>\n<body>\n\t<p>Hello Everyone!</p>\n</body>\n</html>" | tee /data/web_static/releases/test/index.html
 
 # create a sym link of /data/web_static/current to /data/web_static/releases/tests
 ln -sf /data/web_static/releases/test/ /data/web_static/current
