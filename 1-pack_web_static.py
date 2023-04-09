@@ -6,14 +6,14 @@ Write a Fabric script that generates a .tgz archive
         using the function do_pack.
 """
 from datetime import datetime
-from fabric.api import local
+from fabric import task
 
-
+@task
 def do_pack():
     """ function that converts the content of webstatic into a .tgz
     """
     d = datetime.now()
     now = d.strftime("%Y&m%d%H%M%S")
 
-    local("mkdir -p versions")
-    local("tar -czcf versions/web_static_{} web_static".format(now))
+    c.run("mkdir -p versions")
+    c.run("tar -czcf versions/web_static_{} web_static".format(now))
